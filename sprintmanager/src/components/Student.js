@@ -38,7 +38,7 @@ export default class Student extends Component {
     }
     render() {
         return <div className="Student-Container">
-            <h3>Student</h3>
+            <h3 className="Student-Name">Student Name</h3>
             <ListGroup>
                 {['Sprint Challenge #1', 'Sprint Challenge #2', 'Sprint Challenge #3'].map(
                 (sprint, index) => {
