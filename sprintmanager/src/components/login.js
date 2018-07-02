@@ -1,12 +1,12 @@
 import React from "react";
-import { Col, Row, Form, FormGroup, Input, Button, InputGroup, InputGroupAddon } from "reactstrap";
+import { Link } from "react-router-dom";
+import { Col, Row, Form, FormGroup, Input, Button } from "reactstrap";
 
 import "../css/login.css";
 import lambdaLogo from "../img/Lambda_Logo_Full.png";
 
 /*
 TODO
-add link to 'Not a member' a href
 would like the logo to have sprint-tracker under Lambda
 */
 
@@ -78,7 +78,7 @@ class Login extends React.Component {
                                 </FormGroup>
                                 <Button type="submit">Login</Button>
                                 <p>
-                                    Not a member? <a href="#">Sign up now</a>
+                                    Not a member? <Link to="/signup">Sign up now</Link>
                                     <i class="fas fa-long-arrow-alt-right" />
                                 </p>
                             </Form>
