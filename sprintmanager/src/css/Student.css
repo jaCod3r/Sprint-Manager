@@ -1,0 +1,11 @@
+.Student-Container {
+    height: 100vh;
+    width : 500px;
+    margin: 0px auto;
+    padding-top: 20px;
+    background-color: #FFF;
+}
+
+.Student-Sprint-Link {
+    background-color: #931D25;
+}
