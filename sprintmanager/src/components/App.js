@@ -1,10 +1,18 @@
-import React, { Component } from 'react';
-import './../css/App.css';
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+
+import Login from "./login";
+
+import "./../css/App.css";
 
 class App extends Component {
-  render() {
-    return <div>Sprint Manager</div>;
-  }
+    render() {
+        return (
+            <div>
+                <Route exact path="/login" component={Login} />
+            </div>
+        );
+    }
 }
 
 export default App;
