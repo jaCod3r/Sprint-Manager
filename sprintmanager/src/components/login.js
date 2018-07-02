@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Row, Form, FormGroup, Input, Button, InputGroup, InputGroupAddon } from "reactstrap";
 
 import "../css/login.css";
+import lambdaLogo from "../img/Lambda_Logo_Full.png";
 
 /*
 TODO
@@ -35,11 +36,11 @@ class Login extends React.Component {
     render() {
         return (
             <div className="Login-Container">
+                <img className="Login-Logo" src={lambdaLogo} />
                 <Col xs="3">
                     <Row>
                         <Col>
                             <Form className="mr-4 ml-3">
-                                <h3> </h3>
                                 <FormGroup>
                                     <Row className="Login-input">
                                         <Col xs="1">
