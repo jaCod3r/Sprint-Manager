@@ -7,6 +7,7 @@ import lambdaLogo from "../img/Lambda_Logo_Full.png";
 /*
 TODO
 add link to 'Not a member' a href
+would like the logo to have sprint-tracker under Lambda
 */
 
 class Login extends React.Component {
