@@ -1,18 +1,14 @@
 .Student-Container {
     height: 100vh;
-    /* width: 880px; */
     margin: 0px auto;
     padding-top: 20px;
     background-color: e3e1e1;
 }
 .Student-Container .NavBar {
     display: flex;
-    /* justify-content: end; */
 }
 .Student-Container .NavBar img {
-    /* background-color: #931d25; */
     transform: scale(0.5);
-    /* display: flex; */
     margin-left: -28%;
 }
 .Student-Container .Student-Name {
@@ -33,11 +29,19 @@
     justify-content: space-evenly;
     background-color: white;
 }
-.Student-Sprint-Link {
+.Student-Container .Student-Sprint-Input {
+    margin: auto;
+}
+.Student-Container .Student-Sprint-Link {
     background-color: #931d25;
     align-self: center;
 }
+.Student-Container .Student-Sprint-Link:hover {
+    background-color: #d1454e;
+}
+.Student-Container .PM {
+    width: 50%;
+}
 .Student-Name {
     text-align: center;
-    /* background-color: #931d25; */
 }
