@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './../css/App.css';
-import ProgramManager from './pm';
+import ProgramManager from './Pm';
 import { Route } from 'react-router-dom';
 
 class App extends Component {
