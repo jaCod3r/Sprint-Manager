@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import { Container } from "reactstrap";
 
-import Login from "./login";
-// import SignUp form "./signup"
+import Login from "./Login";
+import NavBar from "./NavBar.js";
 
 import "./../css/App.css";
 
 class App extends Component {
     render() {
         return (
-            <div>
+            <Container className="Container">
+                <NavBar />
                 <Route exact path="/" component={Login} />
-                {/* <Route exact path="/sign-up" component={SignUp} /> */}
-            </div>
+            </Container>
         );
     }
 }

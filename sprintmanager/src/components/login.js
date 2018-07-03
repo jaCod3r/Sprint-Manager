@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Form, FormGroup, Input, Button } from "reactstrap";
 
-import "../css/login.css";
+import "../css/Login.css";
 import lambdaLogo from "../img/Lambda_Logo_Full.png";
 
 /*
@@ -37,54 +37,52 @@ class Login extends React.Component {
     render() {
         return (
             <div className="Login-Container">
-                <img className="Login-Logo" src={lambdaLogo} />
-                <Col xs="3">
-                    <Row>
-                        <Col>
-                            <Form className="mr-4 ml-3">
-                                <FormGroup>
-                                    <Row className="Login-input">
-                                        <Col xs="1">
-                                            <i class="fas fa-user-alt" />
-                                        </Col>
-                                        <Col>
-                                            <Input
-                                                onChange={this.handleInputChange}
-                                                value={this.state.Fields.username}
-                                                name="username"
-                                                type="text"
-                                                className="form-control"
-                                                placeholder="User Name"
-                                            />
-                                        </Col>
-                                    </Row>
-                                </FormGroup>
-                                <FormGroup>
-                                    <Row className="Login-input">
-                                        <Col xs="1">
-                                            <i class="fas fa-lock" />
-                                        </Col>
-                                        <Col>
-                                            <Input
-                                                onChange={this.handleInputChange}
-                                                value={this.state.Fields.password}
-                                                name="password"
-                                                type="password"
-                                                className="form-control"
-                                                placeholder="Password"
-                                            />
-                                        </Col>
-                                    </Row>
-                                </FormGroup>
-                                <Button type="submit">Login</Button>
-                                <p>
-                                    Not a member? <Link to="/signup">Sign up now</Link>
-                                    <i class="fas fa-long-arrow-alt-right" />
-                                </p>
-                            </Form>
-                        </Col>
-                    </Row>
-                </Col>
+                <img className="Login-Logo" src={lambdaLogo} alt="Lambda School Logo" />
+                <Row>
+                    <Col>
+                        <Form className="mr-4 ml-3">
+                            <FormGroup>
+                                <Row className="Login-input">
+                                    <Col xs="1">
+                                        <i className="fas fa-user-alt" />
+                                    </Col>
+                                    <Col>
+                                        <Input
+                                            onChange={this.handleInputChange}
+                                            value={this.state.Fields.username}
+                                            name="username"
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="User Name"
+                                        />
+                                    </Col>
+                                </Row>
+                            </FormGroup>
+                            <FormGroup>
+                                <Row className="Login-input">
+                                    <Col xs="1">
+                                        <i className="fas fa-lock" />
+                                    </Col>
+                                    <Col>
+                                        <Input
+                                            onChange={this.handleInputChange}
+                                            value={this.state.Fields.password}
+                                            name="password"
+                                            type="password"
+                                            className="form-control"
+                                            placeholder="Password"
+                                        />
+                                    </Col>
+                                </Row>
+                            </FormGroup>
+                            <Button type="submit">Login</Button>
+                            <p>
+                                Not a member? <Link to="/signup">Sign up now</Link>
+                                <i className="fas fa-long-arrow-alt-right" />
+                            </p>
+                        </Form>
+                    </Col>
+                </Row>
             </div>
         );
     }
