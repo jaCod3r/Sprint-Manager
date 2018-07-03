@@ -1,12 +1,15 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
 import '../css/Pm.css';
+import NavBar from '../components/NavBar';
 
 class ProgramManager extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      Names: ['John Hugget', 'Casey Smith', 'John Smith', 'Jane Smith'],
+      searchQuery: ''
     };
 
     this.toggle = this.toggle.bind(this);
@@ -18,13 +21,20 @@ class ProgramManager extends React.Component {
     });
   }
 
+  handleSearch = event => {
+    this.setState({
+      searchQuery: event.target.value
+    });
+  };
+
   render() {
+    const nameSearch = this.state.Names.filter(name => {
+      return name.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) === -1;
+    });
     return (
       <div>
+        <NavBar />
         <div className="projectmanager">Project Manager / Teacher Assistant Name: </div>
-        <div className="searchstudent">
-          Search for student: <input placeholder="Name" />
-        </div>
 
         <div className="student">Your Students </div>
 
@@ -34,11 +44,16 @@ class ProgramManager extends React.Component {
           </Button>
         </div>
         <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Search Student</ModalHeader>
           <ModalBody>
-            <li> Student 1 </li>
-            <li> Student 1</li>
-            <li> Student 1</li>
+            <div className="searchstudent">
+              <Input type="text" placeholder="Search" value={this.state.searchQuery} onChange={this.handleSearch} />
+            </div>
+            <div>
+              {this.state.Names.map(name => {
+                <li>{name}</li>
+              })}
+            </div>
           </ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={this.toggle}>

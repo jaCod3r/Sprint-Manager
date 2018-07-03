@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import { Container } from 'reactstrap';
+
+import Student from './Student';
+import Login from '../components/Login';
+
 import './../css/App.css';
 import ProgramManager from './Pm';
-import { Route } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        {/* <title>Sprint Manager</title> */}
+      <Container className="Container">
+        <Route exact path="/" component={Login} />
+        <Route path="/student" component={Student} />
         <Route path="/pm" component={ProgramManager} />
-      </div>
+      </Container>
     );
   }
 }

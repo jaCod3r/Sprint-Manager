@@ -15,19 +15,25 @@ import {
   CardText,
   Row,
   Col,
-  Container
+  Container,
+  Input
 } from 'reactstrap';
 import classnames from 'classnames';
 
 import NavBar from '../components/NavBar';
-
 import '../css/Student.css';
 
 export default class Student extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: '1'
+      activeTab: '1',
+      Fields: {
+        review: ''
+      },
+      Review: {
+        text: ''
+      }
     };
   }
 
@@ -38,6 +44,23 @@ export default class Student extends Component {
       });
     }
   };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    const fields = this.state.Fields;
+    fields[name] = value;
+    this.setState({
+      Fields: fields
+    });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    if (this.state.Fields.review) {
+      // this.props.login(this.state.Fields);
+    }
+  };
+
   render() {
     return (
       <Container className="Student-Container">
@@ -108,6 +131,27 @@ export default class Student extends Component {
                                 </CardText>
                                 <Button className="Student-Sprint-Link">Edit</Button>
                                 <Button className="Student-Sprint-Link">Submit</Button>
+
+                                <Row>
+                                  <Col className="Student-Sprint-Input mb-3" xs="6">
+                                    <Input
+                                      onChange={this.handleInputChange}
+                                      value={this.state.Fields.review}
+                                      name="review"
+                                      type="text"
+                                      className="form-control"
+                                      placeholder="Input Review Comments"
+                                    />
+                                  </Col>
+                                </Row>
+                                <Row>
+                                  <Col>
+                                    <Button className="Student-Sprint-Link PM">Edit</Button>
+                                  </Col>
+                                  <Col>
+                                    <Button className="Student-Sprint-Link PM">Submit</Button>
+                                  </Col>
+                                </Row>
                               </Card>
                             </Col>
                           </Row>
