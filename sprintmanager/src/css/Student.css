@@ -1,15 +1,43 @@
 .Student-Container {
     height: 100vh;
-    width : 500px;
+    /* width: 880px; */
     margin: 0px auto;
     padding-top: 20px;
-    background-color: #FFF;
+    background-color: e3e1e1;
 }
-
+.Student-Container .NavBar {
+    display: flex;
+    /* justify-content: end; */
+}
+.Student-Container .NavBar img {
+    /* background-color: #931d25; */
+    transform: scale(0.5);
+    /* display: flex; */
+    margin-left: -28%;
+}
+.Student-Container .Student-Name {
+    margin: 10% 0% 2.5% 0%;
+    text-align: start;
+}
+.Student-Container .Student-Name h3 span {
+    border-bottom: 1.5px solid black;
+    padding-bottom: 1%;
+}
+.Student-Container .Student-Sprint {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.Student-Container .Student-Sprint-Toggle-Review {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+}
 .Student-Sprint-Link {
-    background-color: #931D25;
+    background-color: #931d25;
+    align-self: center;
 }
-
 .Student-Name {
     text-align: center;
+    /* background-color: #931d25; */
 }

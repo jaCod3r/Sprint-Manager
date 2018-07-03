@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { Container } from 'reactstrap';
-import './../css/App.css';
-import Student from './Student';
 
-import Login from './Login';
-import NavBar from './NavBar.js';
+import Student from './Student';
+import Login from '../components/Login';
 
 import './../css/App.css';
 
