@@ -1,0 +1,24 @@
+div.projectmanager {
+  margin-top: 20px;
+
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+div.searchstudent {
+  margin-top: 20px;
+  font-size: 17px;
+  margin-left: 20px;
+}
+
+div.student {
+  margin-top: 20px;
+  font-size: 17px;
+  margin-left: 20px;
+}
+
+div.modalbutton {
+  margin-top: 20px;
+  font-size: 15px;
+  margin-left: 20px;
+}

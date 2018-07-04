@@ -1,20 +1,23 @@
-import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import { Container } from 'reactstrap';
 
-import Login from "./login";
-// import SignUp form "./signup"
+import Student from './Student';
+import Login from '../components/Login';
 
-import "./../css/App.css";
+import './../css/App.css';
+import ProgramManager from './Pm';
 
 class App extends Component {
-    render() {
-        return (
-            <div>
-                <Route exact path="/" component={Login} />
-                {/* <Route exact path="/sign-up" component={SignUp} /> */}
-            </div>
-        );
-    }
+  render() {
+    return (
+      <Container className="Container">
+        <Route exact path="/" component={Login} />
+        <Route path="/student" component={Student} />
+        <Route path="/pm" component={ProgramManager} />
+      </Container>
+    );
+  }
 }
 
 export default App;
