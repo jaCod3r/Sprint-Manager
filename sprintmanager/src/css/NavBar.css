@@ -1,0 +1,7 @@
+.NavBar {
+    display: flex;
+}
+.NavBar img {
+    transform: scale(0.5);
+    margin-left: -28%;
+}
