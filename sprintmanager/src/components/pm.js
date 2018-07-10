@@ -25,15 +25,14 @@ class ProgramManager extends React.Component {
                 "Jean Grant",
                 "Owen Marcus",
                 "Lewis Jones",
-                "John Wallace",
-                "Casey Roberts",
-                "John Doe",
+                "Casey Robertson",
+                "John Don",
                 "Jane Doe",
                 "John Paul",
                 "Casey Jones",
-                "John Smith",
-                "Jane Smith",
-                "Daniel Jones",
+                "John William",
+                "Jane William",
+                "Dan Jones",
                 "Mark Anthony",
                 "Joe Mul",
                 "Jean Grant",
@@ -60,27 +59,12 @@ class ProgramManager extends React.Component {
     };
 
     addName = name => {
-        const nameList = [...this.state.NameList];
-        /** let nameList = [...this.state.NameList];
-        console.log(nameList);
-        // let nameList = [];
-        // nameList.push(name);
+        let nameList = [...this.state.NameList];
 
-        if (!nameList.length) {
-            // nameList = [];
+        if (nameList.indexOf(name) === -1) {
             nameList.push(name);
-        } else {
-            nameList = [...this.state.NameList];
-            for (let i = 0; i < nameList.length; i++) {
-                console.log("list", nameList[i]);
-                console.log("func call", name);
-                if (nameList[i] !== name) {
-                    nameList.push(name);
-                }
-                // return;
-            }
-        } */
-        nameList.push(name);
+        }
+
         this.setState({
             NameList: nameList,
         });
