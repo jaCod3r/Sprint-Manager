@@ -5,9 +5,9 @@ import { Container } from "reactstrap";
 import Student from "./Student";
 import Login from "../components/Login";
 import SignUp from "../components/SignUp";
+import ProgramManager from "./Pm";
 
 import "./../css/App.css";
-import ProgramManager from "./Pm";
 
 class App extends Component {
     render() {
