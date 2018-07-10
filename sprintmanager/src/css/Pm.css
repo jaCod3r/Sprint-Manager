@@ -1,0 +1,34 @@
+.PM-Add {
+    background-color: #931d25;
+}
+
+.PM-Add:hover {
+    background-color: #d1454e;
+}
+
+.PM-Student-List {
+    text-align: center;
+    text-decoration: none;
+}
+
+.PM-Student-List .PM-Student-List--Link {
+    color: black;
+    font-weight: 400;
+}
+
+.Modal-Body {
+    height: 400px;
+    overflow-y: auto;
+}
+
+.Modal-Name-List {
+    overflow-y: auto !important;
+}
+
+.Modal .Modal-Button {
+    background-color: #931d25;
+}
+
+.Modal .Modal-Button:hover {
+    background-color: #d1454e;
+}
