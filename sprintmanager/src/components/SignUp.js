@@ -1,20 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Col, Row, Form, FormGroup, Input, Button } from "reactstrap";
+import { Link } from "react-router-dom";
 
-import "../css/login.css";
+import "../css/signUp.css";
 import lambdaLogo from "../img/Lambda_Logo_Full.png";
 
-/*
-TODO
-would like the logo to have sprint-tracker under Lambda
-*/
-
-class Login extends React.Component {
+class SingUp extends React.Component {
     state = {
         Fields: {
-            username: "",
+            userName: "",
             password: "",
+            confirmPassword: "",
+            passwordFlag: false,
         },
     };
 
@@ -22,27 +19,27 @@ class Login extends React.Component {
         const { name, value } = event.target;
         const fields = this.state.Fields;
         fields[name] = value;
-        this.setState({
-            Fields: fields,
-        });
-    };
+        this.setState({ Fields: fields });
 
-    handleSubmit = event => {
-        event.preventDefault();
-        if (this.state.Fields.username && this.state.Fields.password) {
-            // this.props.login(this.state.Fields);
+        // TODO fix mutation of state directly
+        if (this.state.Fields.password === this.state.Fields.confirmPassword) {
+            // this.setState({ confirmPassword: true });
+            this.state.Fields.passwordFlag = true;
+        } else {
+            // this.setState({ confirmPassword: false });
+            this.state.Fields.passwordFlag = false;
         }
     };
 
     render() {
         return (
-            <div className="Login-Container">
-                <img className="Login-Logo" src={lambdaLogo} alt="Lambda School Logo" />
+            <div className="SignUp-Container">
+                <img className="SignUp-Logo" src={lambdaLogo} alt="Lambda School Logo" />
                 <Row>
                     <Col>
                         <Form className="mr-4 ml-3">
                             <FormGroup>
-                                <Row className="Login-input">
+                                <Row className="SignUp-input">
                                     <Col xs="1">
                                         <i className="fas fa-user-alt" />
                                     </Col>
@@ -50,7 +47,7 @@ class Login extends React.Component {
                                         <Input
                                             onChange={this.handleInputChange}
                                             value={this.state.Fields.username}
-                                            name="username"
+                                            name="userName"
                                             type="text"
                                             className="form-control"
                                             placeholder="User Name"
@@ -58,10 +55,11 @@ class Login extends React.Component {
                                     </Col>
                                 </Row>
                             </FormGroup>
+
                             <FormGroup>
-                                <Row className="Login-input">
+                                <Row className="SignUp-input">
                                     <Col xs="1">
-                                        <i className="fas fa-lock" />
+                                        {this.state.Fields.passwordFlag ? <i className="fas fa-lock" /> : <i className="fas fa-unlock-alt" />}
                                     </Col>
                                     <Col>
                                         <Input
@@ -75,13 +73,28 @@ class Login extends React.Component {
                                     </Col>
                                 </Row>
                             </FormGroup>
+
+                            <FormGroup>
+                                <Row className="SignUp-input">
+                                    <Col xs="1">
+                                        {this.state.Fields.passwordFlag ? <i className="fas fa-lock" /> : <i className="fas fa-unlock-alt" />}
+                                    </Col>
+                                    <Col>
+                                        <Input
+                                            onChange={this.handleInputChange}
+                                            value={this.state.Fields.confirmPassword}
+                                            name="confirmPassword"
+                                            type="password"
+                                            className="form-control"
+                                            placeholder="Retype password"
+                                        />
+                                    </Col>
+                                </Row>
+                            </FormGroup>
+
                             <Link to="/pm">
                                 <Button type="submit">Login</Button>
                             </Link>
-                            <p>
-                                Not a member? <Link to="/signup">Sign up now</Link>
-                                <i className="fas fa-long-arrow-alt-right" />
-                            </p>
                         </Form>
                     </Col>
                 </Row>
@@ -90,4 +103,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default SingUp;

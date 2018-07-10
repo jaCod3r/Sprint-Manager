@@ -1,24 +1,34 @@
-div.projectmanager {
-  margin-top: 20px;
-
-  font-size: 20px;
-  margin-left: 20px;
+.PM-Add {
+    background-color: #931d25;
 }
 
-div.searchstudent {
-  margin-top: 20px;
-  font-size: 17px;
-  margin-left: 20px;
+.PM-Add:hover {
+    background-color: #d1454e;
 }
 
-div.student {
-  margin-top: 20px;
-  font-size: 17px;
-  margin-left: 20px;
+.PM-Student-List {
+    text-align: center;
+    text-decoration: none;
 }
 
-div.modalbutton {
-  margin-top: 20px;
-  font-size: 15px;
-  margin-left: 20px;
+.PM-Student-List .PM-Student-List--Link {
+    color: black;
+    font-weight: 400;
+}
+
+.Modal-Body {
+    height: 400px;
+    overflow-y: auto;
+}
+
+.Modal-Name-List {
+    overflow-y: auto !important;
+}
+
+.Modal .Modal-Button {
+    background-color: #931d25;
+}
+
+.Modal .Modal-Button:hover {
+    background-color: #d1454e;
 }
