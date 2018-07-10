@@ -1,0 +1,39 @@
+.SignUp-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.SignUp-Logo {
+    margin-top: 10%;
+    margin-bottom: 5%;
+    transform: scale(0.7);
+}
+.SignUp-Container .SignUp-input {
+    top: 55%;
+    background-color: #e3e1e18a;
+    align-items: center;
+}
+
+.SignUp-Container button {
+    width: 100%;
+    margin-bottom: 10%;
+    background-color: #931d25;
+}
+.SignUp-Container button:hover {
+    background-color: #d1454e;
+}
+
+.SignUp-Container p {
+    text-align: center;
+    /* opacity: 0.5; */
+}
+
+.SignUp-Container p a {
+    color: gray;
+}
+
+.SignUp-Container p i {
+    margin-left: 2%;
+    align-items: center;
+    font-weight: bold;
+}
