@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { ListGroup, Row, Col, Container } from "reactstrap";
 
-import NavBar from "../components/NavBar";
-import "../css/Student.css";
+import NavBar from "../NavBar";
+import "../../css/Student.css";
 import SprintView from "./sprintView";
 
 export default class Student extends Component {

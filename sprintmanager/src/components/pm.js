@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, ListGroup, ListGroupItem, Row, Col, Container } from "reactstrap";
 import { Link } from "react-router-dom";
 
-import NavBar from "../components/NavBar";
+import NavBar from "./NavBar";
 import "../css/Pm.css";
 
 class ProgramManager extends React.Component {
