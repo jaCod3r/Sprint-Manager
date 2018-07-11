@@ -11,11 +11,11 @@ const NavBar = props => {
                 <img src={lambdaLogo} alt="Lambda School Logo" />
             </NavbarBrand>
             <Nav className="ml-auto" navbar>
+                {/* <NavItem>
+                    <NavLink href="/">Back</NavLink>
+                </NavItem> */}
                 <NavItem>
-                    <NavLink href="/components/">Welcome Student</NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href="https://github.com/reactstrap/reactstrap">Logout</NavLink>
+                    <NavLink href="/">Logout</NavLink>
                 </NavItem>
             </Nav>
         </Navbar>

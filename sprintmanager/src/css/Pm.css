@@ -16,6 +16,19 @@
     font-weight: 400;
 }
 
+.PM-Student-List .Row {
+    justify-content: space-between;
+}
+
+.PM-Student-List .Item {
+    width: 94%;
+}
+.PM-Delete {
+    width: 5%;
+}
+.btn:not(:disabled):not(.disabled) {
+    color: white;
+}
 .Modal-Body {
     height: 400px;
     overflow-y: auto;

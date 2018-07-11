@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ListGroupItem, UncontrolledCollapse } from "reactstrap";
+import { ListGroupItem, Collapse } from "reactstrap";
 
 import NavSprint from "./navSprint";
 import SprintTab from "./sprintTab";
@@ -11,6 +11,8 @@ class SprintView extends React.Component {
             input: "",
             review: "",
         },
+        activeTab: "1",
+        collapse: false,
     };
 
     handleInputChange = event => {
@@ -27,19 +29,34 @@ class SprintView extends React.Component {
         }
     };
 
+    toggle = tab => {
+        if (this.state.activeTab !== tab) {
+            this.setState({
+                activeTab: tab,
+            });
+        }
+    };
+
+    toggleCollapse = () => {
+        this.setState({
+            collapse: !this.state.collapse,
+        });
+    };
+
     render() {
+        console.log(this.state.frownFlag, this.state.mehFlag, this.state.smileFlag);
         return (
             <React.Fragment key={`#${this.props.index + 1}`}>
-                <ListGroupItem id={`toggler${this.props.index + 1}`}>{this.props.sprint}</ListGroupItem>
-                <UncontrolledCollapse toggler={`#toggler${this.props.index + 1}`}>
-                    <NavSprint activeTab={this.props.activeTab} index={this.props.index} toggle={this.props.toggle} />
+                <ListGroupItem onClick={this.toggleCollapse}>{this.props.sprint}</ListGroupItem>
+                <Collapse isOpen={this.state.collapse}>
+                    <NavSprint activeTab={this.state.activeTab} index={this.props.index} toggle={this.toggle} />
                     <SprintTab
                         handleInputChange={this.handleInputChange}
                         handleSubmit={this.handleSubmit}
                         Reviews={this.state.Reviews}
-                        activeTab={this.props.activeTab}
+                        activeTab={this.state.activeTab}
                     />
-                </UncontrolledCollapse>
+                </Collapse>
             </React.Fragment>
         );
     }
