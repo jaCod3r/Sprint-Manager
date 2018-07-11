@@ -3,7 +3,6 @@ import React from "react";
 import { Card, TabContent, TabPane, Button, CardTitle, CardText, Row, Col, Input } from "reactstrap";
 
 export default function(props) {
-    console.log(props);
     return (
         <TabContent activeTab={props.activeTab}>
             <TabPane tabId="1">
