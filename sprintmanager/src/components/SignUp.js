@@ -17,21 +17,24 @@ class SingUp extends React.Component {
 
     handleInputChange = event => {
         const { name, value } = event.target;
-        const fields = this.state.Fields;
-        fields[name] = value;
-        this.setState({ Fields: fields });
+        this.setState({ Fields: { ...this.state.Fields, [name]: value } });
+    };
 
-        // TODO fix mutation of state directly
-        if (this.state.Fields.password === this.state.Fields.confirmPassword) {
-            // this.setState({ confirmPassword: true });
-            this.state.Fields.passwordFlag = true;
+    handlePasswordFlag = () => {
+        if (
+            this.state.Fields.password === this.state.Fields.confirmPassword &&
+            this.state.Fields.password.length &&
+            this.state.Fields.confirmPassword.length
+        ) {
+            return <i className="fas fa-lock" />;
         } else {
-            // this.setState({ confirmPassword: false });
-            this.state.Fields.passwordFlag = false;
+            <i className="fas fa-unlock-alt" />;
         }
+        return <i className="fas fa-unlock-alt" />;
     };
 
     render() {
+        console.log(this.state);
         return (
             <div className="SignUp-Container">
                 <img className="SignUp-Logo" src={lambdaLogo} alt="Lambda School Logo" />
@@ -58,9 +61,7 @@ class SingUp extends React.Component {
 
                             <FormGroup>
                                 <Row className="SignUp-input">
-                                    <Col xs="1">
-                                        {this.state.Fields.passwordFlag ? <i className="fas fa-lock" /> : <i className="fas fa-unlock-alt" />}
-                                    </Col>
+                                    <Col xs="1">{this.handlePasswordFlag()}</Col>
                                     <Col>
                                         <Input
                                             onChange={this.handleInputChange}
@@ -76,9 +77,7 @@ class SingUp extends React.Component {
 
                             <FormGroup>
                                 <Row className="SignUp-input">
-                                    <Col xs="1">
-                                        {this.state.Fields.passwordFlag ? <i className="fas fa-lock" /> : <i className="fas fa-unlock-alt" />}
-                                    </Col>
+                                    <Col xs="1">{this.handlePasswordFlag()}</Col>
                                     <Col>
                                         <Input
                                             onChange={this.handleInputChange}

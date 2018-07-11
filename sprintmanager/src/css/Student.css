@@ -24,6 +24,10 @@
     justify-content: center;
     text-align: center;
 }
+.Student-Container .Student-Sprint li {
+    cursor: pointer;
+}
+
 .Student-Container .Student-Sprint-Toggle-Review {
     display: flex;
     justify-content: space-evenly;
@@ -32,6 +36,7 @@
 .Student-Container .Student-Sprint-Input {
     margin: auto;
 }
+
 .Student-Container .Student-Sprint-Link {
     background-color: #931d25;
     align-self: center;
