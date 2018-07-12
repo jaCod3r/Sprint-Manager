@@ -43,12 +43,20 @@ class SprintView extends React.Component {
         });
     };
 
+    forceCollapse = () => {
+        this.setState({
+            collapse: false,
+        });
+        this.props.forceCollapseAll();
+        return this.state.collapse;
+    }
+
     render() {
-        console.log(this.state.frownFlag, this.state.mehFlag, this.state.smileFlag);
+        // console.log(this.state.frownFlag, this.state.mehFlag, this.state.smileFlag);
         return (
             <React.Fragment key={`#${this.props.index + 1}`}>
                 <ListGroupItem onClick={this.toggleCollapse}>{this.props.sprint}</ListGroupItem>
-                <Collapse isOpen={this.state.collapse}>
+                <Collapse isOpen={this.props.collapseAll ? this.forceCollapse() : this.state.collapse}>
                     <NavSprint activeTab={this.state.activeTab} index={this.props.index} toggle={this.toggle} />
                     <SprintTab
                         handleInputChange={this.handleInputChange}
@@ -57,7 +65,7 @@ class SprintView extends React.Component {
                         activeTab={this.state.activeTab}
                     />
                 </Collapse>
-            </React.Fragment>
+            </React.Fragment >
         );
     }
 }
