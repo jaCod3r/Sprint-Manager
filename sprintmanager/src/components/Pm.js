@@ -1,4 +1,3 @@
-// 1. changing Names array to array of student objects
 
 import React from "react";
 import { Button, ListGroup, Row, Col, Container } from "reactstrap";
@@ -7,6 +6,7 @@ import NavBar from "./NavBar";
 import StudentListModal from './StudentListModal';
 import StudentLink from './StudentLink';
 import "../css/Pm.css";
+import { StudentsContext } from "../contexts/StudentsContext";
 
 class ProgramManager extends React.Component {
     constructor(props) {

@@ -2,7 +2,7 @@ import React from "react";
 
 import { Card, TabContent, TabPane, Button, CardTitle, CardText, Row, Col, Input } from "reactstrap";
 
-export default function(props) {
+export default function (props) {
     return (
         <TabContent activeTab={props.activeTab}>
             <TabPane tabId="1">
@@ -24,20 +24,21 @@ export default function(props) {
                                 <CardTitle>PM Review Full</CardTitle>
                                 <CardText>{props.Reviews.review}</CardText>
                                 <Row>
-                                    <Col className="Student-Sprint-Input mb-3" xs="6">
+                                    <Col className="Student-Sprint-Input mb-3 d-flex justify-content-center" xs="12">
                                         <Input
                                             onChange={props.handleInputChange}
+                                            type="textarea"
                                             value={props.Reviews.input}
                                             name="input"
-                                            type="text"
                                             className="form-control"
                                             placeholder="Input Review Comments"
+                                            style={{ height: 150, width: "76%" }}
                                         />
                                     </Col>
                                 </Row>
                                 <Row>
                                     <Col>
-                                        <Button className="Student-Sprint-Link PM">Edit</Button>
+                                        <Button className="Student-Sprint-Link PM" onClick={() => props.handleEdit()}>Edit</Button>
                                     </Col>
                                     <Col>
                                         <Button type="submit" className="Student-Sprint-Link PM">

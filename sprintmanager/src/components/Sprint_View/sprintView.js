@@ -51,8 +51,15 @@ class SprintView extends React.Component {
         return this.state.collapse;
     }
 
+    handleEdit = () => {
+        this.setState({
+            Reviews: { input: this.state.Reviews.review }
+        })
+    }
+
     render() {
         // console.log(this.state.frownFlag, this.state.mehFlag, this.state.smileFlag);
+        console.log('state', this.state.Reviews)
         return (
             <React.Fragment key={`#${this.props.index + 1}`}>
                 <ListGroupItem onClick={this.toggleCollapse}>{this.props.sprint}</ListGroupItem>
@@ -61,6 +68,7 @@ class SprintView extends React.Component {
                     <SprintTab
                         handleInputChange={this.handleInputChange}
                         handleSubmit={this.handleSubmit}
+                        handleEdit={this.handleEdit}
                         Reviews={this.state.Reviews}
                         activeTab={this.state.activeTab}
                     />
