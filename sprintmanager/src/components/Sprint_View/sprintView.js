@@ -44,7 +44,6 @@ class SprintView extends React.Component {
     };
 
     render() {
-        console.log(this.state.frownFlag, this.state.mehFlag, this.state.smileFlag);
         return (
             <React.Fragment key={`#${this.props.index + 1}`}>
                 <ListGroupItem onClick={this.toggleCollapse}>{this.props.sprint}</ListGroupItem>

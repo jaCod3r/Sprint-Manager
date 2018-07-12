@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ListGroup, Row, Col, Container, Button, Collapse } from "reactstrap";
+import { ListGroup, Row, Col, Container } from "reactstrap";
 
 import NavBar from "../NavBar";
 import SprintView from "./sprintView";
@@ -39,7 +39,6 @@ export default class Student extends Component {
     // };
 
     render() {
-        console.log("from student", this.state.collapse);
         return (
             <Container className="Student-Container">
                 <NavBar />
@@ -57,6 +56,7 @@ export default class Student extends Component {
                             {["Sprint Challenge #1", "Sprint Challenge #2", "Sprint Challenge #3"].map((sprint, index) => {
                                 return (
                                     <SprintView
+                                        key={index}
                                         index={index}
                                         sprint={sprint}
                                         activeTab={this.state.activeTab}

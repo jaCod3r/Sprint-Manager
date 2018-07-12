@@ -11,7 +11,6 @@ class SingUp extends React.Component {
             userName: "",
             password: "",
             confirmPassword: "",
-            passwordFlag: false,
         },
     };
 
@@ -20,7 +19,7 @@ class SingUp extends React.Component {
         this.setState({ Fields: { ...this.state.Fields, [name]: value } });
     };
 
-    handlePasswordFlag = () => {
+    handlePassword = () => {
         if (
             this.state.Fields.password === this.state.Fields.confirmPassword &&
             this.state.Fields.password.length &&
@@ -34,7 +33,6 @@ class SingUp extends React.Component {
     };
 
     render() {
-        console.log(this.state);
         return (
             <div className="SignUp-Container">
                 <img className="SignUp-Logo" src={lambdaLogo} alt="Lambda School Logo" />
@@ -61,7 +59,7 @@ class SingUp extends React.Component {
 
                             <FormGroup>
                                 <Row className="SignUp-input">
-                                    <Col xs="1">{this.handlePasswordFlag()}</Col>
+                                    <Col xs="1">{this.handlePassword()}</Col>
                                     <Col>
                                         <Input
                                             onChange={this.handleInputChange}
@@ -77,7 +75,7 @@ class SingUp extends React.Component {
 
                             <FormGroup>
                                 <Row className="SignUp-input">
-                                    <Col xs="1">{this.handlePasswordFlag()}</Col>
+                                    <Col xs="1">{this.handlePassword()}</Col>
                                     <Col>
                                         <Input
                                             onChange={this.handleInputChange}
