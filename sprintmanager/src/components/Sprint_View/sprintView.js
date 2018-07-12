@@ -49,15 +49,30 @@ class SprintView extends React.Component {
         });
     };
 
+    forceCollapse = () => {
+        this.setState({
+            collapse: false,
+        });
+        this.props.forceCollapseAll();
+        return this.state.collapse;
+    };
+
+    handleEdit = () => {
+        this.setState({
+            Reviews: { input: this.state.Reviews.review },
+        });
+    };
+
     render() {
         return (
             <React.Fragment key={`#${this.props.index + 1}`}>
                 <ListGroupItem onClick={this.toggleCollapse}>{this.props.sprint}</ListGroupItem>
-                <Collapse isOpen={this.state.collapse}>
+                <Collapse isOpen={this.props.collapseAll ? this.forceCollapse() : this.state.collapse}>
                     <NavSprint activeTab={this.state.activeTab} index={this.props.index} toggle={this.toggle} />
                     <SprintTab
                         handleInputChange={this.handleInputChange}
                         handleSubmit={this.handleSubmit}
+                        handleEdit={this.handleEdit}
                         Reviews={this.state.Reviews}
                         activeTab={this.state.activeTab}
                         handleEdit={this.handleEdit}
