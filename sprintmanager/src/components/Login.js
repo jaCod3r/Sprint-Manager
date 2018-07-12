@@ -34,10 +34,14 @@ class Login extends React.Component {
         }
     };
 
+    test = () => {
+        console.log("clicked from function");
+    };
+
     render() {
         return (
             <div className="Login-Container">
-                <img className="Login-Logo" src={lambdaLogo} alt="Lambda School Logo" />
+                <img className="Login-Logo" src={lambdaLogo} alt="Lambda School Logo" onClick={() => this.test()} />
                 <Row>
                     <Col>
                         <Form className="mr-4 ml-3">
