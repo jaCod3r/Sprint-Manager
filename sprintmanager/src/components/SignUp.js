@@ -27,9 +27,9 @@ class SingUp extends React.Component {
         ) {
             return <i className="fas fa-lock" />;
         } else {
-            <i className="fas fa-unlock-alt" />;
+            return <i className="fas fa-unlock-alt" />;
         }
-        return <i className="fas fa-unlock-alt" />;
+        // return <i className="fas fa-unlock-alt" />;
     };
 
     render() {

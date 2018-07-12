@@ -8,12 +8,12 @@ class StudentRating extends React.Component {
     };
 
     setRating = rating => {
-        if (rating === 1 && this.state.smileFlag !== false && this.state.mehFlag !== false) {
-            this.setState({ frownFlag: !this.state.frownFlag });
-        } else if (rating === 2 && this.state.frownFlag !== false && this.state.smileFlag !== false) {
-            this.setState({ mehFlag: !this.state.mehFlag });
-        } else if (rating === 3 && this.state.frownFlag !== false && this.state.mehFlag !== false) {
-            this.setState({ smileFlag: !this.state.smileFlag });
+        if (rating === 1) {
+            this.setState({ frownFlag: !this.state.frownFlag, mehFlag: true, smileFlag: true });
+        } else if (rating === 2) {
+            this.setState({ frownFlag: true, mehFlag: !this.state.mehFlag, smileFlag: true });
+        } else {
+            this.setState({ frownFlag: true, mehFlag: true, smileFlag: !this.state.smileFlag });
         }
     };
 
