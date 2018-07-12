@@ -15,6 +15,12 @@ class SprintView extends React.Component {
         collapse: false,
     };
 
+    handleEdit = () => {
+        this.setState({
+            Reviews: { input: this.state.Reviews.review },
+        });
+    };
+
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -54,6 +60,7 @@ class SprintView extends React.Component {
                         handleSubmit={this.handleSubmit}
                         Reviews={this.state.Reviews}
                         activeTab={this.state.activeTab}
+                        handleEdit={this.handleEdit}
                     />
                 </Collapse>
             </React.Fragment>
