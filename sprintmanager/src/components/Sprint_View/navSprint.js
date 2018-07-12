@@ -3,27 +3,13 @@ import classnames from "classnames";
 
 import { NavItem, NavLink, Nav, Row, Col } from "reactstrap";
 
-class NavSprint extends React.Component {
-    state = {
-        frownFlag: true,
-        mehFlag: true,
-        smileFlag: true,
-    };
+import StudentRating from "./StudentRating";
+import PmRating from "./PmRating";
 
-    setRating = rating => {
-        if (rating === 1) {
-            this.state.frownFlag = !this.state.frownFlag;
-        } else if (rating === 2) {
-            this.state.mehFlag = !this.state.mehFlag;
-        } else {
-            this.state.smileFlag = !this.state.smileFlag;
-        }
-    };
+class NavSprint extends React.Component {
+    state = {};
 
     render() {
-        // console.log(this.state.mehFlag);
-        // console.log(this.state.smileFlag);
-        // console.log(this.state.frownFlag);
         return (
             <Nav className="Student-Sprint-Toggle-Review" tabs>
                 <NavItem>
@@ -38,21 +24,7 @@ class NavSprint extends React.Component {
                         Your Review
                         <Col className="mr-1">
                             <Row className="d-flex justify-content-between">
-                                {this.state.frownFlag ? (
-                                    <i className="far fa-frown fa-2x" onClick={() => this.setRating(1)} />
-                                ) : (
-                                    <i className="fas fa-frown fa-2x" onClick={() => this.setRating(1)} />
-                                )}
-                                {this.state.mehFlag ? (
-                                    <i className="far fa-meh fa-2x" onClick={() => this.setRating(2)} />
-                                ) : (
-                                    <i className="fas fa-meh fa-2x" onClick={() => this.setRating(2)} />
-                                )}
-                                {this.state.smileFlag ? (
-                                    <i className="far fa-smile fa-2x" onClick={() => this.setRating(3)} />
-                                ) : (
-                                    <i className="fas fa-smile fa-2x" onClick={() => this.setRating(3)} />
-                                )}
+                                <StudentRating />
                             </Row>
                         </Col>
                     </NavLink>
@@ -69,21 +41,7 @@ class NavSprint extends React.Component {
                         PM
                         <Col className="mr-1">
                             <Row className="d-flex justify-content-between">
-                                {this.state.frownFlag ? (
-                                    <i className="far fa-frown fa-2x" onClick={() => this.setRating(1)} />
-                                ) : (
-                                    <i className="fas fa-frown fa-2x" onClick={() => this.setRating(1)} />
-                                )}
-                                {this.state.mehFlag ? (
-                                    <i className="far fa-meh fa-2x" onClick={() => this.setRating(2)} />
-                                ) : (
-                                    <i className="fas fa-meh fa-2x" onClick={() => this.setRating(2)} />
-                                )}
-                                {this.state.smileFlag ? (
-                                    <i className="far fa-smile fa-2x" onClick={() => this.setRating(3)} />
-                                ) : (
-                                    <i className="fas fa-smile fa-2x" onClick={() => this.setRating(3)} />
-                                )}
+                                <PmRating />
                             </Row>
                         </Col>
                     </NavLink>
