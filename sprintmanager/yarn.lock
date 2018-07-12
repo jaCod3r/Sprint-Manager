@@ -2,16 +2,6 @@
 # yarn lockfile v1
 
 
-"@types/lodash@^4.14.105":
-  version "4.14.110"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.110.tgz#fb07498f84152947f30ea09d89207ca07123461e"
-
-"@types/react@^16.0.40":
-  version "16.4.6"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.4.6.tgz#5024957c6bcef4f02823accf5974faba2e54fada"
-  dependencies:
-    csstype "^2.2.0"
-
 abab@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
@@ -1850,10 +1840,6 @@ cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   resolved "https://registry.yarnpkg.com/cssstyle/-/cssstyle-0.2.37.tgz#541097234cb2513c83ceed3acddc27ff27987d54"
   dependencies:
     cssom "0.3.x"
-
-csstype@^2.2.0:
-  version "2.5.5"
-  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.5.5.tgz#4125484a3d42189a863943f23b9e4b80fedfa106"
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
@@ -5624,13 +5610,6 @@ react-popper@^0.10.4:
   dependencies:
     popper.js "^1.14.1"
     prop-types "^15.6.1"
-
-react-rating@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/react-rating/-/react-rating-1.2.1.tgz#5ed1df19e1b1bd7bcb39892f7300c1d249e1460a"
-  dependencies:
-    "@types/lodash" "^4.14.105"
-    "@types/react" "^16.0.40"
 
 react-router-dom@^4.3.1:
   version "4.3.1"

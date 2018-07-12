@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, ListGroup, ListGroupItem, Row, Col, Container } from "reactstrap";
 import { Link } from "react-router-dom";
 
-import NavBar from "../components/NavBar";
+import NavBar from "./NavBar";
 import "../css/Pm.css";
 
 class ProgramManager extends React.Component {
@@ -25,15 +25,14 @@ class ProgramManager extends React.Component {
                 "Jean Grant",
                 "Owen Marcus",
                 "Lewis Jones",
-                "John Wallace",
-                "Casey Roberts",
-                "John Doe",
+                "Casey Robertson",
+                "John Don",
                 "Jane Doe",
                 "John Paul",
                 "Casey Jones",
-                "John Smith",
-                "Jane Smith",
-                "Daniel Jones",
+                "John William",
+                "Jane William",
+                "Dan Jones",
                 "Mark Anthony",
                 "Joe Mul",
                 "Jean Grant",
@@ -43,15 +42,13 @@ class ProgramManager extends React.Component {
             searchQuery: "",
             NameList: [],
         };
-
-        this.toggle = this.toggle.bind(this);
     }
 
-    toggle() {
+    toggle = () => {
         this.setState({
             modal: !this.state.modal,
         });
-    }
+    };
 
     handleSearch = event => {
         this.setState({
@@ -60,29 +57,26 @@ class ProgramManager extends React.Component {
     };
 
     addName = name => {
-        const nameList = [...this.state.NameList];
-        /** let nameList = [...this.state.NameList];
-        console.log(nameList);
-        // let nameList = [];
-        // nameList.push(name);
+        let nameList = [...this.state.NameList];
 
-        if (!nameList.length) {
-            // nameList = [];
+        if (nameList.indexOf(name) === -1) {
             nameList.push(name);
-        } else {
-            nameList = [...this.state.NameList];
-            for (let i = 0; i < nameList.length; i++) {
-                console.log("list", nameList[i]);
-                console.log("func call", name);
-                if (nameList[i] !== name) {
-                    nameList.push(name);
-                }
-                // return;
-            }
-        } */
-        nameList.push(name);
+        }
+
         this.setState({
             NameList: nameList,
+        });
+    };
+
+    removeName = index => {
+        let newNameList = [];
+        for (let i = 0; i < this.state.NameList.length; i++) {
+            if (i !== index) {
+                newNameList.push(this.state.NameList[i]);
+            }
+        }
+        this.setState({
+            NameList: newNameList,
         });
     };
 
@@ -121,11 +115,16 @@ class ProgramManager extends React.Component {
                         <ListGroup>
                             {this.state.NameList.map((name, index) => {
                                 return (
-                                    <ListGroupItem key={index}>
-                                        <Link className="PM-Student-List--Link" to="/student">
-                                            {name}
-                                        </Link>
-                                    </ListGroupItem>
+                                    <Row className="PM-Student-List Row" key={index}>
+                                        <ListGroupItem className="PM-Student-List Item">
+                                            <Link className="PM-Student-List--Link" to="/student">
+                                                {name}
+                                            </Link>
+                                        </ListGroupItem>
+                                        <Button className="PM-Student-List--Link PM-Add PM-Delete btn" onClick={() => this.removeName(index)}>
+                                            X
+                                        </Button>
+                                    </Row>
                                 );
                             })}
                         </ListGroup>
