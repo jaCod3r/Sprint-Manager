@@ -1,8 +1,11 @@
+// 1. changing Names array to array of student objects
+
 import React from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, ListGroup, ListGroupItem, Row, Col, Container } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Button, ListGroup, Row, Col, Container } from "reactstrap";
 
 import NavBar from "./NavBar";
+import StudentListModal from './StudentListModal';
+import StudentLink from './StudentLink';
 import "../css/Pm.css";
 
 class ProgramManager extends React.Component {
@@ -10,34 +13,34 @@ class ProgramManager extends React.Component {
         super(props);
         this.state = {
             modal: false,
-            Names: [
-                "John Wallace",
-                "Casey Roberts",
-                "John Doe",
-                "Jane Doe",
-                "John Huggett",
-                "Casey Smith",
-                "John Smith",
-                "Jane Smith",
-                "Daniel Jones",
-                "Mark Anthony",
-                "Joe Mul",
-                "Jean Grant",
-                "Owen Marcus",
-                "Lewis Jones",
-                "Casey Robertson",
-                "John Don",
-                "Jane Doe",
-                "John Paul",
-                "Casey Jones",
-                "John William",
-                "Jane William",
-                "Dan Jones",
-                "Mark Anthony",
-                "Joe Mul",
-                "Jean Grant",
-                "Owen Marcus",
-                "Lewis Jones",
+            Students: [
+                { student: "John Wallace", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Casey Roberts", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "John Doe", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Jane Doe", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "John Huggett", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Casey Smith", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "John Smith", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Jane Smith", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Daniel Jones", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Mark Anthony", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Joe Mul", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Jean Grant", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Owen Marcus", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Lewis Jones", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Casey Robertson", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "John Don", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Jane Doe", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "John Paul", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Casey Jones", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "John William", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Jane William", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Dan Jones", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Mark Anthony", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Joe Mul", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Jean Grant", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Owen Marcus", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
+                { student: "Lewis Jones", cohort: "CS8", sc_reviews: [], sc_ratings: [] },
             ],
             searchQuery: "",
             NameList: [],
@@ -50,11 +53,11 @@ class ProgramManager extends React.Component {
         });
     };
 
-    handleSearch = event => {
-        this.setState({
-            searchQuery: event.target.value,
-        });
-    };
+    // handleSearch = event => {
+    //     this.setState({
+    //         searchQuery: event.target.value,
+    //     });
+    // };
 
     addName = name => {
         let nameList = [...this.state.NameList];
@@ -81,7 +84,8 @@ class ProgramManager extends React.Component {
     };
 
     render() {
-        const nameSearch = this.state.Names.filter(name => {
+        const students = this.state.Students.map(studentObj => studentObj.student);
+        const nameSearch = students.filter(name => {
             return name.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1;
         });
         return (
@@ -116,45 +120,24 @@ class ProgramManager extends React.Component {
                             {this.state.NameList.map((name, index) => {
                                 return (
                                     <Row className="PM-Student-List Row" key={index}>
-                                        <ListGroupItem className="PM-Student-List Item">
-                                            <Link className="PM-Student-List--Link" to="/student">
-                                                {name}
-                                            </Link>
-                                        </ListGroupItem>
-                                        <Button className="PM-Student-List--Link PM-Add PM-Delete btn" onClick={() => this.removeName(index)}>
-                                            X
-                                        </Button>
+                                        <StudentLink
+                                            name={name}
+                                            index={index}
+                                            removeName={this.removeName}
+                                        />
                                     </Row>
                                 );
                             })}
                         </ListGroup>
                     </Col>
                 </Row>
-
-                <Modal className="Modal" isOpen={this.state.modal} fade={false} toggle={this.toggle}>
-                    <ModalHeader toggle={this.toggle}>Search Student</ModalHeader>
-                    <ModalBody className="Modal-Body">
-                        <Row className="mb-3">
-                            <Col>
-                                <Input type="text" placeholder="Search" value={this.state.searchQuery} onChange={this.handleSearch} />
-                            </Col>
-                        </Row>
-                        <ListGroup className="Modal-Name-List">
-                            {nameSearch.map((name, index) => {
-                                return (
-                                    <ListGroupItem onClick={() => this.addName(name)} tag="button" action key={index}>
-                                        {name}
-                                    </ListGroupItem>
-                                );
-                            })}
-                        </ListGroup>
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button className="Modal-Button" onClick={this.toggle}>
-                            Return
-                        </Button>
-                    </ModalFooter>
-                </Modal>
+                <StudentListModal
+                    nameSearch={nameSearch}
+                    toggle={this.toggle}
+                    addName={this.addName}
+                    modal={this.state.modal}
+                    searchQuery={this.state.searchQuery}
+                />
             </Container>
         );
     }
